@@ -1,0 +1,25 @@
+
+
+// original
+```
+[all]
+192.168.1.135 ansible_ssh_user="test" ansible_ssh_pass="admin123"
+192.168.1.168 ansible_ssh_user="test" ansible_ssh_pass="admin123"
+192.168.1.199 ansible_ssh_user="xw" ansible_ssh_pass="admin123"
+
+[iron]
+t135
+t168
+```
+
+
+
+// host-name a1 192.168.1.1
+```
+[all]
+a[1:237]
+
+[stop]
+a[218:219]
+a[220:224]
+```

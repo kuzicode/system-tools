@@ -1,0 +1,31 @@
+
+## install
+
+sudo apt install ansible sshpass
+
+
+## ansible cmd
+```
+// sample
+ansible [hosts] -m [module] -a [arguments]
+ansible all -m shell -a "pwd"
+
+// create file dir
+ansible all -m shell -a "mkdir -p xxx"
+
+// transfor files
+// ansible [hosts] -m copy -a "src=local-src dest=target-src mode=0755"
+ansible all -m copy -a "src=/root/ansible/xxx.sh dest=/work/file/xxx.sh mode=0755"
+
+// run scripts
+ansible servers -m shell -a "/work/file/xxx.sh"
+```
+
+
+## refrence
+// ansible cmd
+https://www.jianshu.com/p/e390a01669f8
+https://www.jianshu.com/p/72f61e6415d9
+// ssh login
+https://blog.csdn.net/lcl_xiaowugui/article/details/81874015
+

@@ -1,0 +1,10 @@
+ # 管理机为xw@192.168.1.xx
+ # 目标机为test@192.168.1.xx
+ # Using alternate directory locations:
+  - hosts: all
+    user: test # 目标机器user
+    tasks:
+     - name: ssh-copy
+       authorized_key: user=test key="{{ lookup('file', '/home/xw/.ssh/id_rsa.pub') }}"  # 本地id_ras.pub
+       tags:
+         - sshkey

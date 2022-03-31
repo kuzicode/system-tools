@@ -1,0 +1,30 @@
+
+// install
+
+sudo apt install ansible expect
+
+// cmd
+
+sudo -i
+ansible all -m shell -a "ps aux | grep xhv | grep -v grep"
+
+
+vim /etc/ansible/hosts
+```
+[all]
+a[1:237]
+
+[stop]
+a[218:219]
+a[220:224]
+```
+
+
+ansible all -m pong
+ansible all -a pong
+
+ansible all -m copy -a "src=/opt/xhvminer dest=/usr/bin/"
+
+for i in {1..237};do echo "192.168.1.$i A$i" >> /etc/hosts; done
+for i in {1..237};do ./ex2 192.168.1.$i;done
+ssh-copy-id xw@192.168.1.73
