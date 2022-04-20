@@ -17,6 +17,16 @@ mdadm -D /dev/md127
 cat /proc/mdstat
 ```
 
+## auto mount
+```
+// check uuid
+blkid /dev/md127
+
+// wr config
+vim /etc/fstab
+/dev/disk/by-uuid/467709e7-abef-44b5-908f-c866094e2193 /dev/md127 ext4 defaults 0 0
+```
+
 
 ## reference
 ```

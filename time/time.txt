@@ -1,0 +1,6 @@
+
+// clock fix
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+// update time server
+ntpdate ntp.aliyun.com

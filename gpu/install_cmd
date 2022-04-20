@@ -1,1 +1,2 @@
+sudo apt install gcc g++ make
 sudo ./NVIDIA-Linux-x86_64-510.54.run -no-x-check -no-nouveau-check

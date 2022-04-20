@@ -1,0 +1,14 @@
+// gitee source
+[source.crates-io]
+replace-with = "gitee"
+
+[source.gitee]
+registry = "https://gitee.com/Aloxaf/crates.io-index"
+
+// 中科大 source
+[source.crates-io]
+registry = "https://github.com/rust-lang/crates.io-index"
+replace-with = 'ustc'
+
+[source.ustc]
+registry = "git://mirrors.ustc.edu.cn/crates.io-index"
