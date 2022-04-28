@@ -4,14 +4,14 @@
 ## cmd
 ```
 // create raid0
-mdadm -C /dev/md127 -l raid0 -n 4 /dev/nvme0n1 /dev/nvme1n1 /dev/nvme3n1 /dev/nvme2n1
+mdadm -C /dev/md127 -l raid0 -n 8 /dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1 /dev/nvme4n1 /dev/nvme5n1 /dev/nvme6n1 /dev/nvme7n1
 
 // format and mount
 sudo mkfs.ext4 /dev/md127
 mount /dev/md127 /nvme
 
 // stop raid0
-mdadm -D /dev/md127
+mdadm -S /dev/md127
 
 // check info
 cat /proc/mdstat
