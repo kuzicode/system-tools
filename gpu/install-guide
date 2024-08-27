@@ -1,0 +1,38 @@
+
+
+# install
+1、卸载系统里的Nvidia低版本显卡驱动
+sudo apt-get purge *nvidia* -y
+sudo apt-get --purge remove "*nvidia*" -y
+sudo apt autoremove -y
+
+2、把显卡驱动加入PPA
+sudo add-apt-repository ppa:graphics-drivers
+sudo apt-get update
+
+3、查找显卡驱动最新的版本号
+sudo apt-cache search nvidia
+
+4、使用终端命令查看Ubuntu推荐的驱动版本
+sudo ubuntu-drivers devices
+ 
+5、安装Nvidia驱动，假设我们想装470的版本
+sudo apt-get install nvidia-driver-470 -y
+
+6、重启
+sudo reboot
+
+7、验证驱动是否安装成功
+nvidia-smi
+
+
+# install cuda
+wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
+
+chmod +x cuda_11.8.0_520.61.05_linux.run
+
+sudo sh cuda_11.8.0_520.61.05_linux.run
+
+
+# remove
+sudo /usr/bin/nvidia-uninstall

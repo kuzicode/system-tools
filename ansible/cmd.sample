@@ -1,0 +1,7 @@
+
+
+# shell
+ansible plot -m shell -a "pwd"
+
+# rsync
+ansible plot -m copy -a "src=/root/config.sh dest=/root/config.sh mode=u+x,g+x,o+x"

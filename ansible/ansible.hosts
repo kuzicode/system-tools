@@ -1,20 +1,24 @@
 
+## 写法一
 
-// original
+vim /etc/ansible/hosts
 ```
 [all]
-192.168.1.135 ansible_ssh_user="test" ansible_ssh_pass="admin123"
-192.168.1.168 ansible_ssh_user="test" ansible_ssh_pass="admin123"
-192.168.1.199 ansible_ssh_user="xw" ansible_ssh_pass="admin123"
-
-[iron]
-t135
-t168
+192.168.1.1 ansible_ssh_user="test" ansible_ssh_pass="admin123"
+192.168.1.2 ansible_ssh_user="test" ansible_ssh_pass="admin123"
+192.168.1.3 ansible_ssh_user="xw" ansible_ssh_pass="admin123"
+...
+192.168.1.100 ansible_ssh_user="xw" ansible_ssh_pass="admin123"
 ```
 
 
+## 写法二
 
-// host-name a1 192.168.1.1
+1. 先本地写入host文件
+add name like: T100 192.168.1.100
+for i in {1..252}; do echo "192.168.1.$i a$i" >> /etc/hosts; done
+
+2. vim /etc/ansible/hosts
 ```
 [all]
 a[1:237]
@@ -23,3 +27,22 @@ a[1:237]
 a[218:219]
 a[220:224]
 ```
+
+
+## 写法三
+
+指定ip段、目标机器user、本地key绝对路径、目标机器密码
+```
+[all]
+192.168.1.[1:10]
+
+[all:vars]
+ansible_user=xw
+ansible_ssh_private_key_file=/home/owner/.ssh/id_rsa
+ansible_become=yes
+ansible_become_method=sudo
+ansible_become_pass=admin123
+```
+
+
+
