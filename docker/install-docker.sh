@@ -1,10 +1,5 @@
 #!/bin/bash
-sudo apt update
-sudo apt install wget -y
-wget -O get-docker.sh https://get.docker.com
-sudo sh get-docker.sh
-sudo apt install -y docker-compose
-rm -f get-docker.sh
-sudo usermod -aG docker $USER
 
-# curl -s https://raw.githubusercontent.com/razumv/helpers/main/tools/install_docker.sh | bash
+wget -qO- https://get.docker.com/ | bash
+curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
